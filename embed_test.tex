@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{sagetex}
+
+\begin{document}
+
+Using Sage\TeX, one can use Sage to compute things and put them into
+your \LaTeX{} document. For example, there are
+$\sage{number_of_partitions(1269)}$ integer partitions of $1269$.
+You don't need to compute the number yourself, or even cut and paste
+it from somewhere.
+
+I can also get the prime factorization of any number. $158760 = \sage{factor(158760)}$.
+
+\begin{sageblock}
+    g(x) = x^6-3*x^2+3*x-4;
+    h(x) = (2*x - 4)^6;
+\end{sageblock}
+
+And simplify an algebraic expression like $\sage{g(x)} = \sage{factor(g(x))}$.
+
+We can go the other way and take something like: \[(2x - 4)^6 = \sage{expand((2*x - 4)^6)}\]
+
+
+Here's some Sage code:
+
+\begin{sageblock}
+    f(x) = exp(x) * sin(2*x)
+\end{sageblock}
+
+The second derivative of $f$ is
+
+\[
+  \frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}} \sage{f(x)} =
+  \sage{diff(f, x, 2)(x)}.
+\]
+
+Here's a plot of $f$ from $-1$ to $1$:
+
+\sageplot{plot(f, -1, 1, figsize=4)}
+
+\end{document}
