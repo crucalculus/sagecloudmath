@@ -2,3 +2,6 @@
 *.aux
 *.pdf
 *.nav
+*.sage-backup
+*.sage-chat
+*.gz
