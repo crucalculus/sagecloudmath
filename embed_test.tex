@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{sagetex}
+\usepackage[imagemagick]{sagetex}
 
 \begin{document}
 
@@ -10,6 +10,8 @@ You don't need to compute the number yourself, or even cut and paste
 it from somewhere.
 
 I can also get the prime factorization of any number. $158760 = \sage{factor(158760)}$.
+
+Let's define two new functions in a sageblock:
 
 \begin{sageblock}
     g(x) = x^6-3*x^2+3*x-4;
@@ -36,6 +38,24 @@ The second derivative of $f$ is
 
 Here's a plot of $f$ from $-1$ to $1$:
 
-\sageplot{plot(f, -1, 1, figsize=4)}
+\sageplot{plot(f, -1, 1, figsize=3)}
+
+\newpage
+
+% I don't know what I'm doing to include a 3d plot in a latex doc
+% the online documentation suggests that the graphics engine can be
+% troublesome and that Imagemagick is required to do the conversion
+% Not sure I understand how this process works yet...
+
+\begin{sagesilent}
+    u,v = var("u,v")
+    G = parametric_plot3d([cos(u)*v, sin(u)*v, 3/2-3*v/2], (u, 0, 2*pi), (v, 0, 1.5), opacity = 0.8, plot_points=[200,200]) # the cone
+ # G = graphs.CubeGraph(5)
+\end{sagesilent}
+
+% need empty [] so sageplot knows you want png format, and aren't
+% passing an option to includegraphics
+\sageplot[][png]{G.plot3d(engine='tachyon')}
 
 \end{document}
+%sagemathcloud={"zoom_width":125}
