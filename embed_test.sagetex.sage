@@ -45,7 +45,7 @@ try:
 except:
  _st_.goboom(36)
 try:
- _st_.plot(0, format='notprovided', _p_=plot(f, -1, 1, figsize=3))
+ _st_.plot(0, format='notprovided', _p_=plot(f, -2, 2, figsize=3))
 except:
  _st_.goboom(41)
 _st_.blockbegin()

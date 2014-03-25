@@ -47,7 +47,7 @@ try:
 except:
  _st_.goboom(_sage_const_36 )
 try:
- _st_.plot(_sage_const_0 , format='notprovided', _p_=plot(f, -_sage_const_1 , _sage_const_1 , figsize=_sage_const_3 ))
+ _st_.plot(_sage_const_0 , format='notprovided', _p_=plot(f, -_sage_const_2 , _sage_const_2 , figsize=_sage_const_3 ))
 except:
  _st_.goboom(_sage_const_41 )
 _st_.blockbegin()
