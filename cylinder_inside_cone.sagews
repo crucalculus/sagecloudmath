@@ -3,7 +3,8 @@ u,v = var("u,v")
 p1 = parametric_plot3d([cos(u)*v, sin(u)*v, 3/2-3*v/2], (u, 0, 2*pi), (v, 0, 1.5), opacity = 0.8, plot_points=[200,200]) # the cone
 p2 = parametric_plot3d([cos(u)/2, sin(u)/2, v-3/4], (u, 0, 2*pi), (v, 0, 3/2), plot_points=[200,200]) # the cylinder
 show(p1)
-︡ef7f78e6-018d-4c0b-b7f5-de40d0884fb5︡{"html":"<div id=174a1e12-425a-457e-b7b0-163ca732c414 style='border:1px solid grey'></div>"}︡{"obj":"{\"foreground\": null, \"camera_distance\": 3.0, \"height\": null, \"width\": null, \"renderer\": null, \"background\": null}","javascript":{"coffeescript":false,"code":"$('#174a1e12-425a-457e-b7b0-163ca732c414').salvus_threejs(obj)"},"once":false}︡
+︡bb331d07-81ee-47c0-98f6-992f7eb9b248︡{"html":"<div id=e7e95bbd-2c15-4bf7-b7b6-cacea2a61893 style='border:1px solid grey'></div>"}︡{"obj":"{\"foreground\": null, \"camera_distance\": 3.0, \"height\": null, \"width\": null, \"renderer\": null, \"background\": null}","javascript":{"coffeescript":false,"code":"$('#e7e95bbd-2c15-4bf7-b7b6-cacea2a61893').salvus_threejs(obj)"},"once":false}︡
+7
 ︠4164924f-a7ef-4021-8bf1-b132d20264b0︠
 u, v = var('u,v')
 fx = cos(u)*sin(2*v)
