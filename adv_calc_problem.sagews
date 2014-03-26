@@ -33,6 +33,21 @@ solve(f_prime==0,x)
 plot(f,xmin=-10^(-3),xmax=10^(-3))
 ︡4bcfef48-d94a-4225-973b-cff3a8390d6d︡{"once":false,"file":{"show":true,"uuid":"49f061cf-8556-4acc-adfe-5af3449a1f4b","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/15306/tmp_apIQnO.png"}}︡
 ︠8ab458d3-1b2a-43dc-9af1-7db23245d3bc︠
+# Starting new problem here...
+
+k(x) = sin(x^2)
+seventh = diff(k,x,7)
+︡31ddb47b-e51f-4b98-b0bd-ba59c61c76eb︡
+︠c984b534-2dbc-4335-b635-a7dd664ba461︠
+show(seventh)
+︡14507e5d-6db7-43e0-a7a3-b0c5d493be68︡{"tex":{"tex":"x \\ {\\mapsto}\\ -128 \\, x^{7} \\cos\\left(x^{2}\\right) - 1344 \\, x^{5} \\sin\\left(x^{2}\\right) + 3360 \\, x^{3} \\cos\\left(x^{2}\\right) + 1680 \\, x \\sin\\left(x^{2}\\right)","display":true}}︡
+︠ee7be8b8-f2e0-4ea4-aa52-fd1c7ad01e2c︠
+plot(seventh,xmin=0,xmax=0.9,title="Seventh derivative of sin(x^2)")
+︡7ab5ba03-3602-4935-b27f-769e361858be︡{"once":false,"file":{"show":true,"uuid":"750d3f05-a171-4c87-b59d-0d0adb43fa8f","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/15306/tmp_pwUOkj.png"}}︡
+︠38e4fb02-251b-40a0-ac8a-cb43bc0b239d︠
+latex(seventh)
+︡40f92c24-0d2e-4444-b517-8be15978e69a︡{"stdout":"x \\ {\\mapsto}\\ -128 \\, x^{7} \\cos\\left(x^{2}\\right) - 1344 \\, x^{5} \\sin\\left(x^{2}\\right) + 3360 \\, x^{3} \\cos\\left(x^{2}\\right) + 1680 \\, x \\sin\\left(x^{2}\\right)\n"}︡
+︠61e77972-1788-4ddb-af1a-6fbdda44efcb︠
 
 
 
