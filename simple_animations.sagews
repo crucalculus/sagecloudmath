@@ -31,6 +31,59 @@ a.show() # optional -- ImageMagick
 ︡0d9c0574-6a7e-44f9-9bde-5bb31cbc9420︡{"once":false,"file":{"show":true,"uuid":"2a5478ea-6d1a-4227-b420-4d023f430470","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/5356/tmp_vI3xYQ.gif"}}︡{"once":false,"file":{"show":true,"uuid":"2a5478ea-6d1a-4227-b420-4d023f430470","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/5356/tmp_vI3xYQ.gif"}}︡{"once":false,"file":{"show":true,"uuid":"2a5478ea-6d1a-4227-b420-4d023f430470","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/5356/tmp_vI3xYQ.gif"}}︡
 ︠47d960c7-721b-4c63-a144-d77c28e81967︠
 
+# a is the blue circle
+step = 0.1
+v = []
+for t in srange(0,4*pi,step):
+    v.append(circle((t,1),1))
+a = animate(v, xmin=-1, ymin=0, xmax=4*pi+0.5, ymax=2, figsize=[9,2])
+
+# b is the point on the circle that draws the cycloid
+M = Graphics()
+w = []
+for t in srange(0,4*pi+0.5,step):
+    M += point((t-sin(t),1-cos(t)),pointsize=20)
+    # w.append(point((t-sin(t),1-cos(t)),pointsize=20))
+    w.append(M)
+b = animate(w, xmin=-1, ymin=0, xmax=8, ymax=2, figsize=[9,2])
+
+# c is the red line that creates the curve by stringing together a lot of little lines connecting points.
+L = Graphics()
+x = []
+for t in srange(0,4*pi+0.5,step):
+    L += line([(t-step-sin(t-step),1-cos(t-step)),(t-sin(t),1-cos(t))], rgbcolor=(1,0,0), thickness=2)
+    x.append(L)
+c = animate(x, xmin=-1, ymin=0, xmax=8, ymax=2, figsize=[9,2])
+
+# Here's where we can either show the animation in this worksheet or save it to an mpg. (Still trying to figure out the video format that works...)
+#(a+b+c).show()
+(a+b+c).ffmpeg(savefile='cycloid.mpg')
+
+
+︠334eab0b-d8b8-4927-9f32-1e38122aa968︠
+
+# create the curve the particle will follow
+#f = x^2
+
+P = Graphics()
+z = []
+for t in srange(-4,4,step):
+    P += point((t,t^2),pointsize=20)
+    z.append(P)
+d = animate(z, xmin=-5, ymin=-1, xmax=5, ymax=20)
+
+Q = Graphics()
+n = []
+for t in srange(-4,4,step):
+    Q += point((2*t,(2*t)^2),pointsize=20,color='red')
+    n.append(Q)
+e = animate(n, xmin=-5,ymin=-1, xmax=5, ymax=20)
+
+#show(d+e)
+(d+e).ffmpeg(savefile='parametric.mpg')
+
+
+︠ffc109bf-6a03-4173-aefe-e118d5fbcb52︠
 
 
 
