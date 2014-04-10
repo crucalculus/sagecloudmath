@@ -3,6 +3,20 @@
 
 \begin{document}
 
+Partial fraction expansion demo.
+
+\begin{sagesilent}
+    var('x')
+    m = (1/(x-2)) + (1/(x+2))
+    simplified = m.full_simplify()
+\end{sagesilent}
+
+Start with $m(x) = \sage{m}$.
+
+Ask SAGE to simplify it and display the result.
+
+Simplified, $m(x) = \sage{simplified}$.
+
 Using Sage\TeX, one can use Sage to compute things and put them into
 your \LaTeX{} document. For example, there are
 $\sage{number_of_partitions(1269)}$ integer partitions of $1269$.
@@ -58,4 +72,4 @@ Here's a plot of $f$ from $-2$ to $2$:
 \sageplot[][png]{G.plot3d(engine='tachyon')}
 
 \end{document}
-%sagemathcloud={"zoom_width":125}
+%sagemathcloud={"zoom_width":120}

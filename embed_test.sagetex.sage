@@ -3,61 +3,77 @@
 import sagetex
 _st_ = sagetex.SageTeXProcessor('embed_test', version='2012/01/16 v2.3.3-69dcb0eb93de', version_check=True)
 _st_.useimagemagick = True
+_st_.blockbegin()
 try:
- _st_.inline(0, latex(number_of_partitions(1269)))
-except:
- _st_.goboom(8)
-try:
- _st_.inline(1, latex(factor(158760)))
+     var('x')
+     m = (1/(x-2)) + (1/(x+2))
+     simplified = m.full_simplify()
 except:
  _st_.goboom(12)
+_st_.blockend()
+try:
+ _st_.inline(0, latex(m))
+except:
+ _st_.goboom(14)
+try:
+ _st_.inline(1, latex(simplified))
+except:
+ _st_.goboom(18)
+try:
+ _st_.inline(2, latex(number_of_partitions(1269)))
+except:
+ _st_.goboom(22)
+try:
+ _st_.inline(3, latex(factor(158760)))
+except:
+ _st_.goboom(26)
 _st_.blockbegin()
 try:
      g(x) = x^6-3*x^2+3*x-4;
      h(x) = (2*x - 4)^6;
 except:
- _st_.goboom(19)
+ _st_.goboom(33)
 _st_.blockend()
 try:
- _st_.inline(2, latex(g(x)))
+ _st_.inline(4, latex(g(x)))
 except:
- _st_.goboom(21)
+ _st_.goboom(35)
 try:
- _st_.inline(3, latex(factor(g(x))))
+ _st_.inline(5, latex(factor(g(x))))
 except:
- _st_.goboom(21)
+ _st_.goboom(35)
 try:
- _st_.inline(4, latex(expand((2*x - 4)^6)))
+ _st_.inline(6, latex(expand((2*x - 4)^6)))
 except:
- _st_.goboom(23)
+ _st_.goboom(37)
 _st_.blockbegin()
 try:
      f(x) = exp(x) * sin(2*x)
 except:
- _st_.goboom(30)
+ _st_.goboom(44)
 _st_.blockend()
 try:
- _st_.inline(5, latex(f(x)))
+ _st_.inline(7, latex(f(x)))
 except:
- _st_.goboom(35)
+ _st_.goboom(49)
 try:
- _st_.inline(6, latex(diff(f, x, 2)(x)))
+ _st_.inline(8, latex(diff(f, x, 2)(x)))
 except:
- _st_.goboom(36)
+ _st_.goboom(50)
 try:
  _st_.plot(0, format='notprovided', _p_=plot(f, -2, 2, figsize=3))
 except:
- _st_.goboom(41)
+ _st_.goboom(55)
 _st_.blockbegin()
 try:
      u,v = var("u,v")
      G = parametric_plot3d([cos(u)*v, sin(u)*v, 3/2-3*v/2], (u, 0, 2*pi), (v, 0, 1.5), opacity = 0.8, plot_points=[200,200]) # the cone
   # G = graphs.CubeGraph(5)
 except:
- _st_.goboom(54)
+ _st_.goboom(68)
 _st_.blockend()
 try:
  _st_.plot(1, format='png', _p_=G.plot3d(engine='tachyon'))
 except:
- _st_.goboom(58)
+ _st_.goboom(72)
 _st_.endofdoc()

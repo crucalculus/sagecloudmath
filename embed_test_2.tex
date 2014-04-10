@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage[imagemagick]{sagetex}
+
+\usepackage{tikz}
+\usepackage{tkz-graph}
+
+\begin{document}
+Testing.
+
+\begin{sagesilent}
+    var('x')
+    Z = IntegerRing();
+    m = (Z.random_element()/(x+Z.random_element())) + (Z.random_element()/(x+Z.random_element()))
+    simplified = m.full_simplify()
+\end{sagesilent}
+
+Start simply with the function $m(x) = \sage{m} = \sage{simplified}$.
+
+\begin{sagesilent}
+    f = (2/(x-3)) - (3/(x+5))
+    simp2 = f.full_simplify()
+\end{sagesilent}
+
+After the second sage-silent block, we have that $f(x) = \sage{f} = \sage{simp2}$.
+
+\end{document}
+%sagemathcloud={"zoom_width":155}

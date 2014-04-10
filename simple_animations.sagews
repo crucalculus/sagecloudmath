@@ -84,8 +84,145 @@ e = animate(n, xmin=-5,ymin=-1, xmax=5, ymax=20)
 
 
 ︠ffc109bf-6a03-4173-aefe-e118d5fbcb52︠
+# a is the blue circle
+step = 0.1
+v = []
+for t in srange(0,4*pi,step):
+    v.append(circle((t,1),1))
+a = animate(v, xmin=-1, ymin=0, xmax=4*pi+0.5, ymax=2, figsize=[9,2])
+
+# b is the point on the circle that draws the cycloid
+M = Graphics()
+w = []
+for t in srange(0,4*pi+0.5,step):
+    M += point((t-sin(t),1-cos(t)),pointsize=20)
+    # w.append(point((t-sin(t),1-cos(t)),pointsize=20))
+    w.append(M)
+b = animate(w, xmin=-1, ymin=0, xmax=8, ymax=2, figsize=[9,2])
+
+# c is the red line that creates the curve by stringing together a lot of little lines connecting points.
+L = Graphics()
+x = []
+for t in srange(0,4*pi+0.5,step):
+    L += line([(t-step-sin(t-step),1-cos(t-step)),(t-sin(t),1-cos(t))], rgbcolor=(1,0,0), thickness=2)
+    x.append(L)
+c = animate(x, xmin=-1, ymin=0, xmax=8, ymax=2, figsize=[9,2])
+
+# Here's where we can either show the animation in this worksheet or save it to an mpg. (Still trying to figure out the video format that works...)
+#(a+b+c).show()
+(a+b+c).ffmpeg(savefile='cycloid.mpg')
 
 
+︠43fad983-d250-4cf3-9833-bceb71a8aebe︠
+
+# create the curve the particle will follow
+#f = x^2
+
+P = Graphics()
+z = []
+for t in srange(-4,4,step):
+    P += point((t,t^2),pointsize=20)
+    z.append(P)
+d = animate(z, xmin=-5, ymin=-1, xmax=5, ymax=20)
+
+Q = Graphics()
+n = []
+for t in srange(-4,4,step):
+    Q += point((2*t,(2*t)^2),pointsize=20,color='red')
+    n.append(Q)
+e = animate(n, xmin=-5,ymin=-1, xmax=5, ymax=20)
+
+#show(d+e)
+(d+e).ffmpeg(savefile='parametric.mpg')
+
+
+︠0c56ce14-6272-4893-8993-f7e5dbb9515b︠
+# a is the blue circle
+step = 0.1
+v = []
+for t in srange(0,4*pi,step):
+    v.append(circle((t,1),1))
+a = animate(v, xmin=-1, ymin=0, xmax=4*pi+0.5, ymax=2, figsize=[9,2])
+
+# b is the point on the circle that draws the cycloid
+M = Graphics()
+w = []
+for t in srange(0,4*pi+0.5,step):
+    M += point((t-sin(t),1-cos(t)),pointsize=20)
+    # w.append(point((t-sin(t),1-cos(t)),pointsize=20))
+    w.append(M)
+b = animate(w, xmin=-1, ymin=0, xmax=8, ymax=2, figsize=[9,2])
+
+# c is the red line that creates the curve by stringing together a lot of little lines connecting points.
+L = Graphics()
+x = []
+for t in srange(0,4*pi+0.5,step):
+    L += line([(t-step-sin(t-step),1-cos(t-step)),(t-sin(t),1-cos(t))], rgbcolor=(1,0,0), thickness=2)
+    x.append(L)
+c = animate(x, xmin=-1, ymin=0, xmax=8, ymax=2, figsize=[9,2])
+
+# Here's where we can either show the animation in this worksheet or save it to an mpg. (Still trying to figure out the video format that works...)
+(a+b+c).show()
+#(a+b+c).ffmpeg(savefile='cycloid.mpg')
+
+
+︡ac885a1a-0fb4-4880-97ec-debdb5954cb5︡{"once":false,"file":{"show":true,"uuid":"242bb975-117d-4798-babd-c9f13e757f5b","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/1510/tmp_YqpmDO.gif"}}︡
+︠2057a60c-7f5b-4dfc-a838-f55fcbe5bbf0︠
+
+# create the curve the particle will follow
+#f = x^2
+
+P = Graphics()
+z = []
+for t in srange(-4,4,step):
+    P += point((t,t^2),pointsize=20)
+    z.append(P)
+d = animate(z, xmin=-5, ymin=-1, xmax=5, ymax=20)
+
+Q = Graphics()
+n = []
+for t in srange(-4,4,step):
+    Q += point((2*t,(2*t)^2),pointsize=20,color='red')
+    n.append(Q)
+e = animate(n, xmin=-5,ymin=-1, xmax=5, ymax=20)
+
+#show(d+e)
+(d+e).ffmpeg(savefile='parametric.mpg')
+
+
+︠45230178-50ab-4482-9a64-72c541c2ffd1︠
+
+
+# Let's try and generate a sine or cosine wave... not sure if this will work or not
+# a is the blue circle
+step = 0.1
+v = []
+for t in srange(0,4*pi,step):
+    v.append(circle((t,0),1))
+a = animate(v, xmin=-1, ymin=0, xmax=4*pi+0.5, ymax=2, figsize=[9,2])
+
+# b is the point on the circle that draws the cycloid
+M = Graphics()
+w = []
+for t in srange(0,4*pi+0.5,step):
+    M += point((t-sin(t),0-cos(t)),pointsize=20)
+    # w.append(point((t-sin(t),1-cos(t)),pointsize=20))
+    w.append(M)
+b = animate(w, xmin=-1, ymin=0, xmax=8, ymax=2, figsize=[9,2])
+
+# c is the red line that creates the curve by stringing together a lot of little lines connecting points.
+L = Graphics()
+x = []
+for t in srange(0,4*pi+0.5,step):
+    L += line([(t-step-sin(t-step),0-cos(t-step)),(t-sin(t),0-cos(t))], rgbcolor=(1,0,0), thickness=2)
+    x.append(L)
+c = animate(x, xmin=-1, ymin=-2, xmax=8, ymax=2, figsize=[9,2])
+
+# Here's where we can either show the animation in this worksheet or save it to an mpg. (Still trying to figure out the video format that works...)
+(a+b+c).show()
+#(a+b+c).ffmpeg(savefile='cycloid.mpg')
+︡5c8e383e-6a9e-483f-af2a-40bfda4b1125︡{"once":false,"file":{"show":true,"uuid":"117cc48e-876e-4b97-abc3-1dcccfacb36f","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/1596/tmp_g3MR4W.gif"}}︡
+︠c9f69fd4-b4e7-47ee-88e0-110ad660cc37︠
 
 
 
