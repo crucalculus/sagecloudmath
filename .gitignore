@@ -1,7 +1,10 @@
 *.log
 *.aux
 *.pdf
+*.eps
 *.nav
 *.sage-backup
 *.sage-chat
 *.gz
+*.scmd
+*.sout
