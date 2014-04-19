@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage[imagemagick]{sagetex}
+\usepackage{pgfplots}
+
 
 \begin{document}
 
@@ -18,7 +20,7 @@ Ask SAGE to simplify it and display the result.
 Simplified, $m(x) = \sage{simplified}$.
 
 Using Sage\TeX, one can use Sage to compute things and put them into
-your \LaTeX{} document. For example, there are
+your \LaTeX{} document. For example, there are\\
 $\sage{number_of_partitions(1269)}$ integer partitions of $1269$.
 You don't need to compute the number yourself, or even cut and paste
 it from somewhere.
@@ -32,7 +34,7 @@ Let's define two new functions in a sageblock:
     h(x) = (2*x - 4)^6;
 \end{sageblock}
 
-And simplify an algebraic expression like $\sage{g(x)} = \sage{factor(g(x))}$.
+And simplify an algebraic expression like$\sage{g(x)} = \sage{factor(g(x))}$.
 
 We can go the other way and take something like: \[(2x - 4)^6 = \sage{expand((2*x - 4)^6)}\]
 
@@ -52,24 +54,39 @@ The second derivative of $f$ is
 
 Here's a plot of $f$ from $-2$ to $2$:
 
-\sageplot{plot(f, -2, 2, figsize=3)}
+\sageplot{plot(f, -2, 2, title=r'$f(x)$', figsize=3)}
+
+\sageplot{polar_plot([2+3*sin(x)], (x, 0, 2*pi),color='black', figsize=[3,3])}
 
 \newpage
 
-% I don't know what I'm doing to include a 3d plot in a latex doc
-% the online documentation suggests that the graphics engine can be
-% troublesome and that Imagemagick is required to do the conversion
-% Not sure I understand how this process works yet...
-
+% let's try and get a 3d plot by using techniques on high school math and chess
+% I think the idea is just to use sage to calculuate a bunch of points, print them
+% to an output string wrapped in a tikzpicture environment, then have tikz draw the graph.
 \begin{sagesilent}
-    u,v = var("u,v")
-    G = parametric_plot3d([cos(u)*v, sin(u)*v, 3/2-3*v/2], (u, 0, 2*pi), (v, 0, 1.5), opacity = 0.8, plot_points=[200,200]) # the cone
- # G = graphs.CubeGraph(5)
+    x = var('x')
+    y = var('y')
+    step = 0.2
+    x1 = -3
+    x2 = 3
+    y1 = -3
+    y2 = 6.20
+    
+    output1 = ""
+    output1 += r"\begin{tikzpicture}[scale=1.0]"
+    output1 += r"\begin{axis}[xlabel=$x$,ylabel=$y$,zlabel=$z$,view={25}{30},xmin=%d, xmax=%d, ymin=%d, ymax=%d]"%(x1,x2,y1,y2-step)
+    output1 += r"\addplot3[surf,mesh/rows=%d,opacity=0.75] coordinates {"%((y2-step-y1)/step+1)
+    for y in srange(y1,y2,step):
+        for x in srange(x1,x2,step):
+            #output += ""
+            output1 += r"(%f, %f, %f) "%(x,y,sin(x)*sin(y))
+    
+    output1 += r"};"
+    output1 += r"\end{axis}"
+    output1 += r"\end{tikzpicture}"
 \end{sagesilent}
 
-% need empty [] so sageplot knows you want png format, and aren't
-% passing an option to includegraphics
-\sageplot[][png]{G.plot3d(engine='tachyon')}
+\sagestr{output1}
 
 \end{document}
-%sagemathcloud={"zoom_width":120}
+%sagemathcloud={"zoom_width":170}

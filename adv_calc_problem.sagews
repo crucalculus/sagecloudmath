@@ -52,17 +52,22 @@ latex(seventh)
 
 k(x) = sin(x^2)
 seventh = diff(k,x,7)
-︡31ddb47b-e51f-4b98-b0bd-ba59c61c76eb︡
+︡0cb4f16b-77c0-4666-96d3-4d657d11b5c9︡
 ︠492a1cfe-451d-411c-91bd-57ab4994cf16︠
 show(seventh)
 ︡14507e5d-6db7-43e0-a7a3-b0c5d493be68︡{"tex":{"tex":"x \\ {\\mapsto}\\ -128 \\, x^{7} \\cos\\left(x^{2}\\right) - 1344 \\, x^{5} \\sin\\left(x^{2}\\right) + 3360 \\, x^{3} \\cos\\left(x^{2}\\right) + 1680 \\, x \\sin\\left(x^{2}\\right)","display":true}}︡
 ︠c1e87edb-da7b-4f56-bbc0-0b2922ae1c8e︠
-plot(seventh,xmin=0,xmax=0.9,title="Seventh derivative of sin(x^2)")
-︡7ab5ba03-3602-4935-b27f-769e361858be︡{"once":false,"file":{"show":true,"uuid":"750d3f05-a171-4c87-b59d-0d0adb43fa8f","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute6dc2/15306/tmp_pwUOkj.png"}}︡
+plot(seventh,xmin=0,xmax=0.9,title="Seventh derivative of $\\sin(x^2)$")
+︡47e7ebdc-b113-49e7-acd4-a08491821f0b︡{"once":false,"file":{"show":true,"uuid":"2384d117-1e2f-416d-860b-2fa958fa9a0d","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute21dc0/22172/tmp_ihQRXu.png"}}︡
 ︠87ca79b6-63af-4987-8688-4b26108fd20b︠
 latex(seventh)
 ︡40f92c24-0d2e-4444-b517-8be15978e69a︡{"stdout":"x \\ {\\mapsto}\\ -128 \\, x^{7} \\cos\\left(x^{2}\\right) - 1344 \\, x^{5} \\sin\\left(x^{2}\\right) + 3360 \\, x^{3} \\cos\\left(x^{2}\\right) + 1680 \\, x \\sin\\left(x^{2}\\right)\n"}︡
 ︠2caa5a7b-65a7-463e-9838-ff3d72979943︠
+
+var('n')
+taylor ((x + 1)^n, x, 0, 4)
+︡2cdb2d18-9303-4c8a-8c8c-69edcf9dcdf3︡{"stdout":"n\n"}︡{"stdout":"1/24*(n^4 - 6*n^3 + 11*n^2 - 6*n)*x^4 + 1/6*(n^3 - 3*n^2 + 2*n)*x^3 + 1/2*(n^2 - n)*x^2 + n*x + 1\n"}︡
+︠61c2d2ba-0055-4a5f-a504-876930beb6c1︠
 
 
 
