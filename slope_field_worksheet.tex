@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{sagetex}
+\usepackage{tabularx}
+
+% GEOMETRY
+\usepackage[margin=0.5in]{geometry}
+\geometry{letterpaper}
+
+
+\begin{document}
+\begin{sagesilent}
+x,y = var('x y')
+# this code breaks if the number of differential equations is not
+# a multiple of two!
+diff_eq = [x, y, x+y, x-y, y-x, x*y, x/y, x^2*y^2]
+
+plots = [plot_slope_field( equation, (x,-2,2), (y,-2,2) , figsize=3 , title=r'$\frac{dy}{dx} = %s$'%latex(equation) ) for equation in diff_eq]
+
+# PLOTS COMPLETE! BUILD TABULARX CODE
+counter = 0
+output = "\\begin{tabularx}{\\textwidth}{X X}"
+while counter < len(plots):
+    output += "\sageplot{plots[%d]} & \sageplot{plots[%d]} \\\ "%(counter,counter+1)
+    counter += 2
+output += "\end{tabularx}"
+\end{sagesilent}
+
+Slope Fields.
+
+\sagestr{output}
+
+\end{document}
+
+%sagemathcloud={"zoom_width":100}

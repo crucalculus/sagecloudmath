@@ -3,8 +3,10 @@
 *.pdf
 *.eps
 *.nav
+*.sage
 *.sage-backup
 *.sage-chat
+*.py
 *.gz
 *.scmd
 *.sout
