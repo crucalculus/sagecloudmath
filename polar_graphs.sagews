@@ -131,7 +131,7 @@ integrate(f, x, 0, pi)
 <h1>
 Polar Area Plot #1
 </h1>
-︡8f11d811-f3c0-407a-aadd-f0343c6fa2fc︡{"html":"<h1>\nPolar Area Plot #1\n</h1>"}︡
+︡ef66b30b-ca48-464f-aaad-ad3bf8abc8ac︡{"html":"<h1>\nPolar Area Plot #1\n</h1>"}︡
 ︠06621410-7e56-49c5-a4c3-db3a1fb191d7︠
 graph1 = Graphics()
 # Draw the two polar curves...
@@ -203,12 +203,6 @@ polar_plot([2 + 3*cos(x)], (x, 0, 2*pi),color='black', thickness=2, fill=True, f
 #T.save('tricky_polar_graph.pdf')
 ︡2f3d6cd6-80da-4a56-a37e-a32a512d1fde︡{"once":false,"file":{"show":true,"uuid":"98a54574-d542-4252-ab98-662afb7fc6a8","filename":"/projects/71d05d9f-884f-4ae9-80d7-2563cc75a382/.sage/temp/compute16a/32718/tmp_77cAp7.png"}}︡
 ︠01355c0a-301f-412e-b1fd-088b80569baa︠
-
-r = (2+3*cos(x))
-N(integrate( 0.5*r^2, x, 0, 2.3005 ) + integrate( 0.5*r^2, x, 3.98266, 2*pi))
-︡35b5a87f-27cd-4b1d-ac7f-0f1462f264cb︡{"stdout":"26.2626577881852"}︡{"stdout":"\n"}︡
-︠00a1275c-f765-41dd-a8b3-c71981dc068e︠
-  
 
 
 
