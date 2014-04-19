@@ -9,71 +9,92 @@ try:
      m = (1/(x-2)) + (1/(x+2))
      simplified = m.full_simplify()
 except:
- _st_.goboom(12)
+ _st_.goboom(14)
 _st_.blockend()
 try:
  _st_.inline(0, latex(m))
 except:
- _st_.goboom(14)
+ _st_.goboom(16)
 try:
  _st_.inline(1, latex(simplified))
 except:
- _st_.goboom(18)
+ _st_.goboom(20)
 try:
  _st_.inline(2, latex(number_of_partitions(1269)))
 except:
- _st_.goboom(22)
+ _st_.goboom(24)
 try:
  _st_.inline(3, latex(factor(158760)))
 except:
- _st_.goboom(26)
+ _st_.goboom(28)
 _st_.blockbegin()
 try:
      g(x) = x^6-3*x^2+3*x-4;
      h(x) = (2*x - 4)^6;
 except:
- _st_.goboom(33)
+ _st_.goboom(35)
 _st_.blockend()
 try:
  _st_.inline(4, latex(g(x)))
 except:
- _st_.goboom(35)
+ _st_.goboom(37)
 try:
  _st_.inline(5, latex(factor(g(x))))
 except:
- _st_.goboom(35)
+ _st_.goboom(37)
 try:
  _st_.inline(6, latex(expand((2*x - 4)^6)))
 except:
- _st_.goboom(37)
+ _st_.goboom(39)
 _st_.blockbegin()
 try:
      f(x) = exp(x) * sin(2*x)
 except:
- _st_.goboom(44)
+ _st_.goboom(46)
 _st_.blockend()
 try:
  _st_.inline(7, latex(f(x)))
 except:
- _st_.goboom(49)
+ _st_.goboom(51)
 try:
  _st_.inline(8, latex(diff(f, x, 2)(x)))
 except:
- _st_.goboom(50)
+ _st_.goboom(52)
 try:
- _st_.plot(0, format='notprovided', _p_=plot(f, -2, 2, figsize=3))
+ _st_.plot(0, format='notprovided', _p_=plot(f, -2, 2, title=r'$f(x)$', figsize=3))
 except:
- _st_.goboom(55)
+ _st_.goboom(57)
+try:
+ _st_.plot(1, format='notprovided', _p_=polar_plot([2+3*sin(x)], (x, 0, 2*pi),color='black', figsize=[3,3]))
+except:
+ _st_.goboom(59)
 _st_.blockbegin()
 try:
-     u,v = var("u,v")
-     G = parametric_plot3d([cos(u)*v, sin(u)*v, 3/2-3*v/2], (u, 0, 2*pi), (v, 0, 1.5), opacity = 0.8, plot_points=[200,200]) # the cone
-  # G = graphs.CubeGraph(5)
+     x = var('x')
+     y = var('y')
+     step = 0.2
+     x1 = -3
+     x2 = 3
+     y1 = -3
+     y2 = 6.20
+ 
+     output1 = ""
+     output1 += r"\begin{tikzpicture}[scale=1.0]"
+     output1 += r"\begin{axis}[xlabel=$x$,ylabel=$y$,zlabel=$z$,view={25}{30},xmin=%d, xmax=%d, ymin=%d, ymax=%d]"%(x1,x2,y1,y2-step)
+     output1 += r"\addplot3[surf,mesh/rows=%d,opacity=0.75] coordinates {"%((y2-step-y1)/step+1)
+     for y in srange(y1,y2,step):
+         for x in srange(x1,x2,step):
+             #output += ""
+             output1 += r"(%f, %f, %f) "%(x,y,sin(x)*sin(y))
+ 
+     output1 += r"};"
+     output1 += r"\end{axis}"
+     output1 += r"\end{tikzpicture}"
 except:
- _st_.goboom(68)
+ _st_.goboom(87)
 _st_.blockend()
 try:
- _st_.plot(1, format='png', _p_=G.plot3d(engine='tachyon'))
+ _st_.inline(9, output1)
 except:
- _st_.goboom(72)
+ _st_.goboom(89)
 _st_.endofdoc()
