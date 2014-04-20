@@ -21,7 +21,7 @@ origin = (0,0)
 list = []
 for i in range(len(Points)):
     if (i<23) or (i>39):
-     += line([origin, Points[i]],color='green')
+        G += line([origin, Points[i]],color='green')
     else:
         G += line([origin, Points[i]],color='orange')
     list.append(G)
